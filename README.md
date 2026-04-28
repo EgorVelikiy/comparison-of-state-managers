@@ -18,42 +18,24 @@
 ```
 .
 ├── src/                    # React клиентское приложение
-│   ├── components/         # Компоненты приложения
-│   │   ├── shared/        # Общие компоненты для всех реализаций
-│   │   │   ├── FilterBar.tsx
-│   │   │   ├── ItemList.tsx
-│   │   │   ├── ItemDetail.tsx
-│   │   │   ├── StatsPanel.tsx
-│   │   │   └── ActionBar.tsx
-│   │   ├── redux/         # Redux Toolkit реализация
-│   │   ├── mobx/          # MobX реализация
-│   │   ├── recoil/        # Recoil реализация
-│   │   └── valtio/        # Valtio реализация
-│   ├── state/             # Логика управления состоянием
-│   │   ├── redux/         # Redux Toolkit store, slices, selectors
-│   │   ├── mobx/          # MobX store
-│   │   ├── recoil/        # Recoil atoms, selectors, actions
-│   │   └── valtio/        # Valtio proxy state, derived state
+│   ├── components/         # Компоненты приложения     
+│   │   ├── FilterBar.tsx   # Общие компоненты для всех реализаций
+│   │   ├── ItemList.tsx
+│   │   ├── ItemDetail.tsx
+│   │   ├── StatsPanel.tsx
+│   │   └── ActionBar.tsx
+|   |   
+│   ├── redux/         # Redux Toolkit реализация
+│   ├── mobx/          # MobX реализация
+│   ├── recoil/        # Recoil реализация
+│   ├── valtio/        # Valtio реализация
+│   │  
 │   ├── types/             # TypeScript типы и интерфейсы
 │   ├── utils/             # Утилиты
-│   │   ├── api.ts         # API клиент для работы с сервером
-│   │   └── renderLogger.tsx # Логирование ререндеров
-│   ├── styles/            # Стили приложения
+│   │
+│   ├── styles.css         # Стили приложения
 │   ├── App.tsx            # Главный компонент
 │   └── main.tsx           # Точка входа
-├── server/                # Express API сервер
-│   ├── src/
-│   │   ├── routes/        # API маршруты
-│   │   │   └── items.ts   # Маршруты для работы с элементами
-│   │   ├── data/          # Mock данные (имитация БД)
-│   │   │   └── mockData.ts
-│   │   ├── types/         # TypeScript типы сервера
-│   │   └── index.ts       # Точка входа сервера
-│   ├── package.json
-│   └── tsconfig.json
-├── package.json           # Клиентское приложение
-├── vite.config.ts
-└── tsconfig.json
 ```
 
 ## Установка и запуск
@@ -96,7 +78,7 @@ npm run dev
 
 Приложение будет доступно на http://localhost:5173
 
-### Production сборка
+### Production сборка├── redux/         # Redux Toolkit 
 
 1. Соберите клиент:
 ```bash

@@ -3,10 +3,7 @@ name: Deploy Frontend
 on:
   push:
     paths:
-      - "src/**"
-      - "index.html"
-      - "package.json"
-      - "vite.config.*"
+      - "**"
 
 jobs:
   deploy:
