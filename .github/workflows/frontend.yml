@@ -1,0 +1,42 @@
+name: Deploy Frontend
+
+on:
+  push:
+    paths:
+      - "src/**"
+      - "index.html"
+      - "package.json"
+      - "vite.config.*"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install deps
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Install AWS CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y awscli
+
+      - name: Upload to Yandex Object Storage
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.YC_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.YC_SECRET_ACCESS_KEY }}
+        run: |
+          aws s3 sync dist s3://${{ secrets.YC_BUCKET_NAME }} \
+            --delete \
+            --endpoint-url https://storage.yandexcloud.net
